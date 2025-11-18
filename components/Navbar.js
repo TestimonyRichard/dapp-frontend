@@ -16,12 +16,10 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 90, damping: 15 }}
     >
-      <Link href="/" className="flex items-center gap-2 text-sky-700 font-bold text-xl">
+      <Link href="/" className="flex items-center gap-2 text-[#4338CA] font-bold text-xl">
         <Image src="/logo.svg" alt="Logo" width={32} height={32} className="drop-shadow-md" />
-        <span className="text-gradient">DApp Portal</span>
+        <span className="brand-badge">DApp Portal</span>
       </Link>
-
-    
 
       <div className="flex items-center gap-3">
         <motion.button
@@ -32,7 +30,6 @@ export default function Navbar() {
         >
           Connect Wallet
         </motion.button>
-       
 
         <ConnectButton
           showBalance={false}

