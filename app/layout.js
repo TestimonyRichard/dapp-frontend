@@ -10,10 +10,8 @@ import { WalletModalProvider } from './context/WalletModalContext'
 import { mainnet, polygon, bsc, arbitrum, optimism, base } from '@wagmi/chains'
 import '@rainbow-me/rainbowkit/styles.css'
 
-// ✅ Create Query Client
 const queryClient = new QueryClient()
 
-// ✅ Use getDefaultConfig directly (NO createConfig wrapper!)
 const config = getDefaultConfig({
   appName: 'My DApp',
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,

@@ -129,11 +129,11 @@ export default function WalletModal() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 120, damping: 18 }}
-            className="relative z-50 w-[94%] max-w-5xl bg-white/80 backdrop-blur-2xl rounded-2xl border border-white/30 overflow-hidden shadow-lg"
+            className="relative z-50 w-[94%] max-w-5xl  backdrop-blur-2xl rounded-2xl border border-white/30 overflow-hidden shadow-lg " color='f8ad9d'
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/30">
-              <h3 className="text-xl font-semibold text-sky-700">Connect a Wallet</h3>
+              <h3 className="text-xl font-semibold "color='f08080'>Connect a Wallet</h3>
               <button
                 onClick={closeModal}
                 className="text-sky-700 font-semibold hover:text-blue-600 transition"
@@ -185,7 +185,7 @@ export default function WalletModal() {
             </div>
 
             {/* Footer */}
-            <div className="text-center text-xs text-slate-500 py-3 border-t border-white/30 bg-white/40">
+            <div className="text-center text-xs text-slate-500 py-3 border-t border-white/30" color='f8ad9d'>
               🌐 Supports 50+ Wallets — EVM + Solana Ecosystems
             </div>
           </motion.div>

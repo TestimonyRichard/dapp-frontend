@@ -11,14 +11,21 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="navbar shadow-glow"
+      className="navbar"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 90, damping: 15 }}
+      transition={{ type: "spring", stiffness: 90, damping: 15 }}
     >
-      <Link href="/" className="flex items-center gap-2 text-[#4338CA] font-bold text-xl">
-        <Image src="/logo.svg" alt="Logo" width={32} height={32} className="drop-shadow-md" />
-        <span className="brand-badge">DApp Portal</span>
+      <Link href="/" className="flex items-center gap-2 font-bold text-xl text-brand-accentLight">
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={32}
+          height={32}
+          style={{ filter: "hue-rotate(-300deg)" }}
+          className="opacity-90"
+        />
+        <span>DApp Portal</span>
       </Link>
 
       <div className="flex items-center gap-3">
@@ -26,16 +33,11 @@ export default function Navbar() {
           whileHover={{ scale: 1.07 }}
           whileTap={{ scale: 0.95 }}
           onClick={openModal}
-          className="btn-primary shadow-glow"
+          className="btn-primary"
         >
           Connect Wallet
         </motion.button>
 
-        <ConnectButton
-          showBalance={false}
-          chainStatus="none"
-          label="Manual Connect"
-        />
       </div>
     </motion.nav>
   );
