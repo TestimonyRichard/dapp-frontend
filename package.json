@@ -16,7 +16,7 @@
     "@wagmi/chains": "^1.8.0",
     "@wagmi/core": "^2.22.1",
     "framer-motion": "^12.23.24",
-    "next": "15.5.2",
+    "next": "^16.0.7",
     "pino-pretty": "^13.1.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
